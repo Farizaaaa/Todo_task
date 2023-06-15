@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block body %}
+<form method="POST" class="shadow-lg p-3 mb-5 bg-white rounded">
+  {% csrf_token %}
+  <h4>{{f.as_p}}</h4>
+<input type="submit" name='update' value="Update" class="btn btn-success">
+</form>
+
+{% endblock %}

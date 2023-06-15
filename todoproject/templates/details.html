@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block body %}
+<div class="col-md-6">
+        <h4>Task</h4>
+
+        <div class="shadow-lg p-3 mb-5 bg-white rounded">
+
+          <div class="Card-body">
+
+                <h5 class="Card-title">{{task.name}}</h5>
+                <p><b>{{task.priority}}</b></p>
+              <p><b>{{task.date}}</b></p>
+              <a class="btn btn-primary" href="{% url 'todo:home' %}">Back</a>
+
+          </div>
+        </div><br>
+
+    </div>
+{% endblock %}

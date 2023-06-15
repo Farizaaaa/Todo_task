@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% block body %}
+<br>
+  <br>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+
+<form method="POST" class="shadow-lg p-3 mb-5 bg-white rounded">
+<h1>Add Task</h1>
+  {% csrf_token %}
+    <div class="form-group">
+  <input type="text" name="name"  style="width:500px;padding:10px;" class="form-control" placeholder="Enter Task Name"><br>
+  <br>
+    </div>
+    <div class="form-group">
+  <input type="number" name="priority" style="width:500px;padding:10px;" class="form-control" placeholder="Enter Priority">
+  <br>
+  <br>
+    </div>
+    <div class="form-group">
+
+  <input type="date" name="date" style="width:500px;padding:10px;" class="form-control" placeholder="Enter Date">
+  <br>
+  <br>
+    </div>
+    <div class="form-group">
+  <input type="submit" class="btn btn-primary">
+
+    </div>
+
+</form>
+      </div>
+    <div class="col-md-6">
+        <h4>Tasks to be completed</h4>
+        {% for i in task1 %}
+        <div class="shadow-lg p-3 mb-5 bg-white rounded">
+
+          <div class="Card-body">
+
+                <h5 class="Card-title">{{i.name}}</h5>
+                <p><b>{{i.priority}}</b></p>
+              <p><b>{{i.date}}</b></p>
+                <a class="btn btn-danger" href="{% url 'todo:delete' i.id %}">Done</a>
+                 <a class="btn btn-success" href="{% url 'todo:update' i.id %}">Update</a>
+                <a class="btn btn-primary" href="{% url 'todo:cbvdetail' i.id %}">View</a>
+          </div>
+        </div><br>
+        {% endfor %}
+
+    </div>
+    </div>
+  </div>
+
+
+
+
+
+{% endblock %}
